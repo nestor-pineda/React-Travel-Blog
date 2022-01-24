@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const List = ({ blogs, title }) => {
   return (
     <div className="blog-list">
@@ -9,6 +11,7 @@ const List = ({ blogs, title }) => {
             <p>{item.body}</p>
             <p>{item.author}</p>
             <p>ID: {item.id}</p>
+            <Link to={`/blog/${item.id}`}>Read more</Link>
           </div>
         );
       })}
