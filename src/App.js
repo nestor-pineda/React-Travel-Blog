@@ -1,7 +1,7 @@
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Create from "./Create";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogDetails from "./BlogDetail";
 
 function App() {
@@ -10,17 +10,11 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/create">
-              <Create />
-            </Route>
-            <Route path="/blog/:id">
-              <BlogDetails />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/blog/:id" element={<BlogDetails />} />
+          </Routes>
         </div>
       </div>
     </Router>
