@@ -3,11 +3,28 @@ import { useState } from "react";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [author, setAuthor] = useState("");
+  const [author, setAuthor] = useState("Nestor");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const blog = { title, content, author };
+    setLoading(true);
+
+    fetch("http://localhost:8000/blogs/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      console.log("new blog added");
+      setLoading(false);
+    });
+  };
+
   return (
     <div className="create">
       <h2>Add a new Blog Post</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Blog Title:</label>
         <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
         <label>Blog Content:</label>
@@ -18,7 +35,7 @@ const Create = () => {
           <option value="Nestor">Nestor</option>
           <option value="Raquel">Raquel</option>
         </select>
-        <button>Add Blog</button>
+        {!loading ? <button>Add Blog</button> : <button>Adding blog...</button>}
       </form>
       <p>{title}</p>
       <p>{content}</p>
