@@ -14,9 +14,7 @@
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
-.navbar h1 {
-  color: #f1356d;
-}
+
 .navbar .links {
   margin-left: auto;
 }
@@ -26,10 +24,40 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: #fff000;
 }
+/*Logo*/
+.navbar h1 {
+  /* color: #333333; */
+  transform: translate(-50%);
+}
+
+.navbar h1 a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar h1 a::after {
+  content: "";
+  background: rgb(0, 0, 0);
+  mix-blend-mode: exclusion;
+  width: calc(100% + 20px);
+  height: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+  transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.navbar h1 a:hover::after {
+  height: calc(100% + 8px);
+  color: #fff;
+}
+/*Ebd Logo*/
 .content {
-  max-width: 600px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
 }
@@ -45,7 +73,7 @@
 }
 .blog-preview h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #333333;
   margin-bottom: 8px;
 }
 .blog-preview a {
@@ -98,14 +126,14 @@
 /* blog details page */
 .blog-details h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #333333;
   margin-bottom: 10px;
 }
 .blog-details div {
   margin: 20px 0;
 }
 .blog-details button {
-  background: #f1356d;
+  background: #333333;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -113,9 +141,44 @@
   cursor: pointer;
 }
 
+article h2 {
+  margin-bottom: 15px;
+}
+
+/*Delete Button*/
+.delete {
+  background-color: #fff000;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 10px;
+}
+
+.delete:not(:disabled):hover,
+.delete:not(:disabled):focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 1);
+}
+
+.delete:disabled {
+  /* filter: saturate(0.2) opacity(0.5); */
+  cursor: not-allowed;
+}
+
 /* create new blog form */
 .create {
-  max-width: 400px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
@@ -125,7 +188,7 @@
 }
 .create h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #333333;
   margin-bottom: 30px;
 }
 .create input,
@@ -137,14 +200,47 @@
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
+  border-radius: 5px;
 }
-.create button {
-  background: #f1356d;
+/* .create button {
+  background: #333333;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+} */
+
+/*Delete Button*/
+.create button {
+  background-color: #fff000;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
+
+.create button:not(:disabled):hover,
+.create button:not(:disabled):focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 1);
+}
+
+.create button:disabled {
+  /* filter: saturate(0.2) opacity(0.5); */
+  cursor: not-allowed;
 }
 
 /****In Addition****/

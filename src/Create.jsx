@@ -11,7 +11,7 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = { title, body, author };
+    const blog = { title, body, image, author };
     setLoading(true);
 
     fetch("http://localhost:8000/blogs/", {
@@ -42,9 +42,9 @@ const Create = () => {
         </select>
         {!loading ? <button>Add Blog</button> : <button>Adding blog...</button>}
       </form>
-      <p>{title}</p>
+      {/* <p>{title}</p>
       <p>{body}</p>
-      <p>{author}</p>
+      <p>{author}</p> */}
     </div>
   );
 };

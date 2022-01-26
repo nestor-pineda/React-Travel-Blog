@@ -20,10 +20,17 @@ const BlogDetails = () => {
       {error && <div>{error}</div>}
       {blog && (
         <article>
+          <div className="imgContainer" style={{ backgroundImage: `url(${blog.image})` }}></div>
           <h2>{blog.title}</h2>
-          <p>Written by: {blog.author}</p>
+
           <div>{blog.body}</div>
-          <button onClick={deleteClick}>Delete</button>
+          <p className="author">
+            <strong>Written by: </strong>
+            {blog.author}
+          </p>
+          <button className="delete" onClick={deleteClick}>
+            Delete
+          </button>
         </article>
       )}
     </div>

@@ -13,7 +13,7 @@ const Home = () => {
           <div></div>
         </div>
       )}
-      {blogs && <List blogs={blogs} title="All Blogs" />}
+      {blogs && <List blogs={blogs} title="All Travels" />}
     </div>
   );
 };
