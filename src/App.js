@@ -4,12 +4,14 @@ import Create from "./Create";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogDetails from "./BlogDetail";
 import NotFound from "./NotFound";
+import Carrousel from "./Slider";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <Carrousel />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />
