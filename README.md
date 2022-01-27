@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Traveler's Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Placeholder Image](travelers.gif)
+
+I've created a blog using React to upload travels. The application is fully responsive. You may pubish a blog pst and delete it after. I have user JSON Server as the back end to keep things simple.
+
+Use `npx json-server --watch data/db.json --port 8000` to start JSON Server in port 8000.
 
 ## Available Scripts
 
@@ -10,6 +14,8 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
