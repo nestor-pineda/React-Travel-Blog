@@ -18,35 +18,37 @@ const BlogDetails = () => {
   };
 
   return (
-    <div className="blogDetails">
-      {loading && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      {blog && (
-        <article>
-          <div className="imgContainer" style={{ backgroundImage: `url(${blog.image})` }}></div>
-          <h2>{blog.title}</h2>
+    <div className="content">
+      <div className="blogDetails">
+        {loading && <div>Loading...</div>}
+        {error && <div>{error}</div>}
+        {blog && (
+          <article>
+            <div className="imgContainer" style={{ backgroundImage: `url(${blog.image})` }}></div>
+            <h2>{blog.title}</h2>
 
-          <div>{blog.body}</div>
-          <p className="author">
-            <strong>Written by: </strong>
-            {blog.author}
-          </p>
+            <div>{blog.body}</div>
+            <p className="author">
+              <strong>Written by: </strong>
+              {blog.author}
+            </p>
 
-          {user ? (
-            <button className="delete" onClick={deleteClick}>
-              Delete
-            </button>
-          ) : (
-            <button className="delete">
-              <Link to="/login">You mus Login to delete</Link>
-            </button>
-          )}
+            {user ? (
+              <button className="delete" onClick={deleteClick}>
+                Delete
+              </button>
+            ) : (
+              <button className="delete">
+                <Link to="/login">You must Login to delete</Link>
+              </button>
+            )}
 
-          {/* <button className="delete" onClick={deleteClick}>
+            {/* <button className="delete" onClick={deleteClick}>
             Delete
           </button> */}
-        </article>
-      )}
+          </article>
+        )}
+      </div>
     </div>
   );
 };

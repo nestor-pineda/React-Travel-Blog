@@ -15,15 +15,13 @@ function App() {
       <Router>
         <div className="App">
           <Navbar />
-          <Carrousel />
-          <div className="content">
-            <Routes>
-              {routes.map((route) => (
-                <Route key={route.path} path={route.path} element={route.element} />
-              ))}
-              <Route element={<AppRoutes />} path="/create" />
-            </Routes>
-          </div>
+
+          <Routes>
+            {routes.map((route) => (
+              <Route key={route.path} path={route.path} element={route.element} />
+            ))}
+            <Route element={<AppRoutes />} path="/create" />
+          </Routes>
         </div>
       </Router>
     </AuthProvider>
