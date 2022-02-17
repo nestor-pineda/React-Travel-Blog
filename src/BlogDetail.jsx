@@ -1,10 +1,13 @@
 import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "./CustomHooks/Fetch";
+import { useAuthState } from "./Context";
+import { Link } from "react-router-dom";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const { apiData: blog, loading, error } = useFetch("http://localhost:8000/blogs/" + id);
   const navigate = useNavigate();
+  const { user } = useAuthState();
 
   const deleteClick = () => {
     fetch("http://localhost:8000/blogs/" + blog.id, {
@@ -28,9 +31,20 @@ const BlogDetails = () => {
             <strong>Written by: </strong>
             {blog.author}
           </p>
-          <button className="delete" onClick={deleteClick}>
+
+          {user ? (
+            <button className="delete" onClick={deleteClick}>
+              Delete
+            </button>
+          ) : (
+            <button className="delete">
+              <Link to="/login">You mus Login to delete</Link>
+            </button>
+          )}
+
+          {/* <button className="delete" onClick={deleteClick}>
             Delete
-          </button>
+          </button> */}
         </article>
       )}
     </div>
